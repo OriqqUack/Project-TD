@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerController : BaseController
 {
 	int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
+
+	[SerializeField]
+	float _speed = 10.0f;
 
 	PlayerStat _stat;
 	bool _stopSkill = false;
@@ -14,8 +18,8 @@ public class PlayerController : BaseController
     {
 		WorldObjectType = Define.WorldObject.Player;
 		_stat = gameObject.GetComponent<PlayerStat>();
-		Managers.Input.MouseAction -= OnMouseEvent;
-		Managers.Input.MouseAction += OnMouseEvent;
+		Managers.Input.KeyAction -= OnKeyboard;
+		Managers.Input.KeyAction += OnKeyboard;
 
 		if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
 			Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
@@ -87,24 +91,51 @@ public class PlayerController : BaseController
 		}
 	}
 
-	void OnMouseEvent(Define.MouseEvent evt)
+	void OnKeyboard()
 	{
-		switch (State)
+		if (Input.GetKey(KeyCode.W))
 		{
-			case Define.State.Idle:
-				OnMouseEvent_IdleRun(evt);
-				break;
-			case Define.State.Moving:
-				OnMouseEvent_IdleRun(evt);
-				break;
-			case Define.State.Skill:
-				{
-					if (evt == Define.MouseEvent.PointerUp)
-						_stopSkill = true;
-				}
-				break;
-		}
-	}
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 0.2f);
+            transform.position += Vector3.forward * Time.deltaTime * _speed;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.back), 0.2f);
+            transform.position += Vector3.back * Time.deltaTime * _speed;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.left), 0.2f);
+            transform.position += Vector3.left * Time.deltaTime * _speed;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.right), 0.2f);
+            transform.position += Vector3.right * Time.deltaTime * _speed;
+        }
+    }
+
+	//void OnMouseEvent(Define.MouseEvent evt)
+	//{
+	//	switch (State)
+	//	{
+	//		case Define.State.Idle:
+	//			OnMouseEvent_IdleRun(evt);
+	//			break;
+	//		case Define.State.Moving:
+	//			OnMouseEvent_IdleRun(evt);
+	//			break;
+	//		case Define.State.Skill:
+	//			{
+	//				if (evt == Define.MouseEvent.PointerUp)
+	//					_stopSkill = true;
+	//			}
+	//			break;
+	//	}
+	//}
 
 	void OnMouseEvent_IdleRun(Define.MouseEvent evt)
 	{

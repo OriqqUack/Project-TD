@@ -1,0 +1,24 @@
+{
+  "monsters": [
+    {
+      "monsterName": "Slime",
+      "level": 1,
+      "maxHp": 100,
+      "attack": 10,
+      "moveSpeed": 2,
+      "attackSpeed": 1,
+      "scanRange": 10,
+      "attackRange": 1
+    },
+    {
+      "monsterName": "Ork",
+      "level": 1,
+      "maxHp": 200,
+      "attack": 20,
+      "moveSpeed": 1,
+      "attackSpeed": 0.8,
+      "scanRange": 10,
+      "attackRange": 1.5
+    }
+  ]
+}
