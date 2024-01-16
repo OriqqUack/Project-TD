@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UIElements;
@@ -19,10 +20,13 @@ public class BaseBuildingController : MonoBehaviour
     private float zRotation = 0;
     private bool isRotating = false;
 
+  
+    
     void Start()
     {
         // 초기화 및 이벤트 등록
         Init();
+        
     }
 
     private void Update()
@@ -35,8 +39,8 @@ public class BaseBuildingController : MonoBehaviour
     {
         for (int i = 0; i < buildings.Count; i++)
         {
-            zRotation = (rotationAngle + i * (Mathf.PI / 4)) * Mathf.Rad2Deg + 90; // 회전값
-            buildingsPos.Add(rotationAngle + i * (Mathf.PI / 4));
+            zRotation = (rotationAngle + i * (2*Mathf.PI/ buildings.Count)) * Mathf.Rad2Deg + 90; // 회전값
+            buildingsPos.Add(rotationAngle + i * (2*Mathf.PI/ buildings.Count));
             Vector3 SinCos = new Vector3(Mathf.Cos(buildingsPos[i]), Mathf.Sin(buildingsPos[i]), 0); // Adjust the calculation for SinCos
             buildings[i].transform.position = center.position + SinCos * radius;
             buildings[i].transform.rotation = Quaternion.Euler(new Vector3(0, 0, zRotation));
@@ -47,11 +51,11 @@ public class BaseBuildingController : MonoBehaviour
     {
         isRotating = true;
 
-        for(float j = Mathf.PI / 2; j <= Mathf.PI / 2 + Mathf.PI / 4; j += Mathf.PI / 256) //초기 값이 pi여야 딱 맞아 떨어지기 가능 0이면 오차 생김
+        for(float j = Mathf.PI / 2; j <= Mathf.PI / 2 + 2 * Mathf.PI / buildings.Count; j += Mathf.PI / (10 * buildings.Count)) //초기 값이 pi여야 딱 맞아 떨어지기 가능 0이면 오차 생김
         {
             for (int i = 0; i < buildings.Count; i++)
             {
-                buildingsPos[i] -= Mathf.PI / 256;
+                buildingsPos[i] -= Mathf.PI / (10 * buildings.Count);
                 zRotation = buildingsPos[i] * Mathf.Rad2Deg + 90;
                 Vector3 SinCos = new Vector3(Mathf.Cos(buildingsPos[i]), Mathf.Sin(buildingsPos[i]),0); // Adjust the calculation for SinCos
                 buildings[i].transform.position = center.position + SinCos * radius;
@@ -69,11 +73,11 @@ public class BaseBuildingController : MonoBehaviour
     {
         isRotating = true;
 
-        for (float j = Mathf.PI / 2; j <= Mathf.PI / 2 + Mathf.PI / 4; j += Mathf.PI / 256)
+        for (float j = Mathf.PI / 2; j <= Mathf.PI / 2 + 2 * Mathf.PI / buildings.Count; j += Mathf.PI / (10 * buildings.Count))
         {
             for (int i = 0; i < buildings.Count; i++)
             {
-                buildingsPos[i] += Mathf.PI / 256;
+                buildingsPos[i] += Mathf.PI / (10 * buildings.Count);
                 zRotation = buildingsPos[i] * Mathf.Rad2Deg + 90;
                 Vector3 SinCos = new Vector3(Mathf.Cos(buildingsPos[i]), Mathf.Sin(buildingsPos[i]), 0); // Adjust the calculation for SinCos
                 buildings[i].transform.position = center.position + SinCos * radius;
@@ -87,28 +91,14 @@ public class BaseBuildingController : MonoBehaviour
 
     // 버튼 클릭 시 호출될 함수, 
     public void OnButtonClickRight()
-    {
-        //마지막에서 하나 전에 차례가 되면 첫번째가 뒤로 복사되고 
-        if (!isRotating)
-        {
-            if (buildings.Count <= clickCount+1)
-                return; // 클릭 횟수가 길이보다 길면 못넘어감
-            clickCount++;
-            Debug.Log("RightClick");
-            StartCoroutine(RotateBuildingsRight());
-        }
+    { 
+        if(!isRotating)
+           StartCoroutine(RotateBuildingsRight());
     }
 
     public void OnButtonClickLeft()
     {
-        //마지막에서 하나 전에 차례가 되면 첫번째가 뒤로 복사되고 
-        if (!isRotating)
-        {
-            if (clickCount<=0)
-                return; // 클릭 횟수가 길이보다 길면 못넘어감
-            clickCount--;
-            Debug.Log("LeftClick");
-            StartCoroutine(RotateBuildingsLeft());
-        }
+        if(!isRotating)
+           StartCoroutine(RotateBuildingsLeft());
     }
 }
