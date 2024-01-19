@@ -14,6 +14,7 @@ namespace Data
 		public int attack;
 		public int totalExp;
 	}
+	[Serializable]
 	public class MonsterStat
 	{
 		public string monsterName;
@@ -24,10 +25,9 @@ namespace Data
 		public float attackSpeed;
 		public float scanRange;
 		public float attackRange;
-
 	}
 
-	[Serializable]
+    [Serializable]
 	public class StatData : ILoader<int, Stat>
 	{
 		public List<Stat> stats = new List<Stat>();
@@ -40,23 +40,20 @@ namespace Data
 				dict.Add(stat.level, stat);
 			return dict;
 		}
-
-		
 	}
 
-	[Serializable]
-	public class MonsterData : ILoader<string, MonsterStat>
-	{
+    [Serializable]
+    public class MonsterData : ILoader<string, MonsterStat>
+    {
         public List<MonsterStat> monsters = new List<MonsterStat>();
-
 
         public Dictionary<string, MonsterStat> MakeDict()
         {
-			Dictionary<string, MonsterStat> dict = new Dictionary<string, MonsterStat>();
-			foreach (MonsterStat monsterStat in monsters)
-				dict.Add(monsterStat.monsterName, monsterStat);
-			return dict;
+            Dictionary<string, MonsterStat> dict = new Dictionary<string, MonsterStat>();
+            foreach (MonsterStat monsterStat in monsters)
+                dict.Add(monsterStat.monsterName, monsterStat);
+            return dict;
         }
     }
-	#endregion
+    #endregion
 }
