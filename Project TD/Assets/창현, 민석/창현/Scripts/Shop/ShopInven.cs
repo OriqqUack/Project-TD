@@ -1,8 +1,8 @@
-Ôªøusing System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_Inven : UI_Scene
+public class ShopInven : UI_Scene
 {
     enum GameObjects
     {
@@ -15,18 +15,18 @@ public class UI_Inven : UI_Scene
 
         Bind<GameObject>(typeof(GameObjects));
 
-        
+        var listWeaponItems = Managers.Data.ShopWeaponData;
 
         GameObject gridPanel = Get<GameObject>((int)GameObjects.GridPanel);
         foreach (Transform child in gridPanel.transform)
             Managers.Resource.Destroy(child.gameObject);
 
-
-        // Ïã§Ï†ú Ïù∏Î≤§ÌÜ†Î¶¨ Ï†ïÎ≥¥Î•º Ï∞∏Í≥†Ìï¥ÏÑú
-        for (int i = 0; i < 8; i++)
+        // Ω«¡¶ ¿Œ∫•≈‰∏Æ ¡§∫∏∏¶ ¬¸∞Ì«ÿº≠
+        foreach (var weaponItem in listWeaponItems.Values)
         {
-            GameObject item = Managers.UI.MakeSubItem<UI_Inven_Item>(gridPanel.transform).gameObject;            
+            GameObject item = Managers.UI.MakeSubItem<UI_Inven_Item>(gridPanel.transform).gameObject;
             UI_Inven_Item invenItem = item.GetOrAddComponent<UI_Inven_Item>();
+            invenItem.SetInfo(weaponItem);
         }
     }
 }

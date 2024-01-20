@@ -12,17 +12,20 @@ public class UI_Inven_Item : UI_Base
     }
 
     string _name;
+    int _price;
 
     public override void Init()
     {
         Bind<GameObject>(typeof(GameObjects));
         Get<GameObject>((int)GameObjects.ItemNameText).GetComponent<Text>().text = _name;
 
-        Get<GameObject>((int)GameObjects.ItemIcon).BindEvent((PointerEventData) => { Debug.Log($"아이템 클릭! {_name}"); });
+        Get<GameObject>((int)GameObjects.ItemIcon).BindEvent((PointerEventData) => { Managers.Game.SpendGold(_price); });
     }
 
-    public void SetInfo(string name)
+    public void SetInfo(Data.JsonWeapon weaponData)
     {
-        _name = name;
+        _name = weaponData.item_name;
+        _price = weaponData.price;
     }
 }
+ 

@@ -6,12 +6,30 @@ using UnityEngine;
 public class GameManagerEx
 {
     GameObject _player;
+    int _gold;
     //Dictionary<int, GameObject> _players = new Dictionary<int, GameObject>();
     HashSet<GameObject> _monsters = new HashSet<GameObject>();
 
     public Action<int> OnSpawnEvent;
 
     public GameObject GetPlayer() { return _player; }
+
+    public void GetGold(int gold)
+    {
+        if(_gold+gold>10000)
+            return;
+        _gold += gold;
+    }
+
+    public void SpendGold(int gold)
+    {
+        if (_gold - gold < 0)
+        {
+            Debug.Log("너무 비쌉니다"); // 고쳐야함
+            return;
+        }
+        _gold -= gold;
+    }
 
     public GameObject Spawn(Define.WorldObject type, string path, Transform parent = null)
     {
