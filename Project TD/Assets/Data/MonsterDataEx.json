@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "Key": "Wizard",
+            "Value": {
+                "AttackType": "Magic",
+                "Power": 30.0,
+                "Age": 30
+            }
+        },
+        {
+            "Key": "Dracula",
+            "Value": {
+                "AttackType": "Bite",
+                "Power": 20.5,
+                "Age": 10000
+            }
+        },
+        {
+            "Key": "Zombie",
+            "Value": {
+                "AttackType": "Bite",
+                "Power": 10.0,
+                "Age": 100
+            }
+        }
+    ]
+}
