@@ -16,7 +16,7 @@ public class HomeScene : BaseScene
 
         GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "UnityChan");
         Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
-        Managers.UI.ShowSceneUI<UI_Inven>();
+        Managers.UI.ShowSceneUI<ShopInven>();
         //Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
         GameObject go = new GameObject { name = "SpawningPool" };
         SpawningPool pool = go.GetOrAddComponent<SpawningPool>();

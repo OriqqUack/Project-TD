@@ -32,8 +32,9 @@ namespace Data
 
     #region shop
     [Serializable]
-    public class JsonItem : RawData
+    public class JsonItem
     {
+        public int raw;
         public string item_name;
         public string item_description;
         public int kind_of_money;
@@ -41,8 +42,15 @@ namespace Data
         public int item_type;
     }
 
-    public class JsonWeapon : JsonItem
+    [Serializable]
+    public class JsonWeapon 
     {
+        public int raw;
+        public string item_name;
+        public string item_description;
+        public int kind_of_money;
+        public int price;
+        public int item_type;
         public float attack_power;
         public float critical_attack_power;
         public float critical_chance;
@@ -51,9 +59,10 @@ namespace Data
         public int weapon_type;
     }
 
-
-    public class JsonShopWeaponGradePercentage : RawData
+    [Serializable]
+    public class JsonShopWeaponGradePercentage
     {
+        public int raw;
         public int grade;
         public string grade_name;
         public float percentage;
@@ -61,42 +70,42 @@ namespace Data
 
 
     [Serializable]
-    public class ShopItemData : ILoader<string, JsonItem>
+    public class ShopItemData : ILoader<int, JsonItem>
     {
-        public List<JsonItem> stats = new List<JsonItem>();
+        public List<JsonItem> itemWeapon = new List<JsonItem>();
 
-        public Dictionary<string, JsonItem> MakeDict()
+        public Dictionary<int, JsonItem> MakeDict()
         {
-            Dictionary<string, JsonItem> dict = new Dictionary<string, JsonItem>();
-            foreach (JsonItem stat in stats)
+            Dictionary<int, JsonItem> dict = new Dictionary<int, JsonItem>();
+            foreach (JsonItem stat in itemWeapon)
                 dict.Add(stat.raw, stat);
             return dict;
         }
     }
 
     [Serializable]
-    public class ShopWeaponData : ILoader<string, JsonWeapon>
+    public class ShopWeaponData : ILoader<int, JsonWeapon>
     {
-        public List<JsonWeapon> stats = new List<JsonWeapon>();
+        public List<JsonWeapon> itemWeapon = new List<JsonWeapon>();
 
-        public Dictionary<string, JsonWeapon> MakeDict()
+        public Dictionary<int, JsonWeapon> MakeDict()
         {
-            Dictionary<string, JsonWeapon> dict = new Dictionary<string, JsonWeapon>();
-            foreach (JsonWeapon stat in stats)
+            Dictionary<int, JsonWeapon> dict = new Dictionary<int, JsonWeapon>();
+            foreach (JsonWeapon stat in itemWeapon)
                 dict.Add(stat.raw, stat);
             return dict;
         }
     }
 
     [Serializable]
-    public class WeaponPerData : ILoader<string, JsonShopWeaponGradePercentage>
+    public class WeaponPerData : ILoader<int, JsonShopWeaponGradePercentage>
     {
-        public List<JsonShopWeaponGradePercentage> stats = new List<JsonShopWeaponGradePercentage>();
+        public List<JsonShopWeaponGradePercentage> weaponPercentage = new List<JsonShopWeaponGradePercentage>();
 
-        public Dictionary<string, JsonShopWeaponGradePercentage> MakeDict()
+        public Dictionary<int, JsonShopWeaponGradePercentage> MakeDict()
         {
-            Dictionary<string, JsonShopWeaponGradePercentage> dict = new Dictionary<string, JsonShopWeaponGradePercentage>();
-            foreach (JsonShopWeaponGradePercentage stat in stats)
+            Dictionary<int, JsonShopWeaponGradePercentage> dict = new Dictionary<int, JsonShopWeaponGradePercentage>();
+            foreach (JsonShopWeaponGradePercentage stat in weaponPercentage)
                 dict.Add(stat.raw, stat);
             return dict;
         }
