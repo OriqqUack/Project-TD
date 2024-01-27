@@ -4,29 +4,29 @@ using UnityEngine;
 using System;
 using System.IO;
 
-[Serializable]
-public class Monster
-{
-    public int level;
-    public int maxHp;
-    public int attack;
-    public float moveSpeed;
-    public float attackSpeed;
-    public float scanRange;
-    public float attackRange;
-}
+//[Serializable]
+//public class Monster
+//{
+//    public int level;
+//    public int maxHp;
+//    public int attack;
+//    public float moveSpeed;
+//    public float attackSpeed;
+//    public float scanRange;
+//    public float attackRange;
+//}
 
-[Serializable]
-public class MonsterList
-{
-    public Dictionary<string, Monster> monsters;
-}
+//[Serializable]
+//public class MonsterList
+//{
+//    public Dictionary<string, Monster> monsters;
+//}
 
-public class MonsterJson : MonoBehaviour
-{
-    void Start()
-    {
-        Dictionary<string, Monster> monsterDic = new Dictionary<string, Monster>();
+//public class MonsterJson : MonoBehaviour
+//{
+//    void Start()
+//    {
+//        Dictionary<string, Monster> monsterDic = new Dictionary<string, Monster>();
 
         //Monster slime = new Monster();
         //slime.level =;
@@ -74,5 +74,5 @@ public class MonsterJson : MonoBehaviour
         //MonsterFromJson.monsters = DictionaryJsonUtility.FromJson<string, Monster>(fromJsonData);
         //// 역직렬화된 딕셔너리를 출력
         //print(MonsterFromJson.monsters);
-    }
-}
+//    }
+//}

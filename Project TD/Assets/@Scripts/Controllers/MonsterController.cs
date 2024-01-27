@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class MonsterController : BaseController
 {
-	Stat _stat;
+	MonsterStat _stat;
 
 	[SerializeField]
 	float _scanRange = 10;
@@ -16,7 +16,7 @@ public class MonsterController : BaseController
     public override void Init()
     {
 		WorldObjectType = Define.WorldObject.Monster;
-		_stat = gameObject.GetComponent<Stat>();
+		_stat = gameObject.GetComponent<MonsterStat>();
 
 		if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
 			Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);

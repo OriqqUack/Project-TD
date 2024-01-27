@@ -1,8 +1,6 @@
-﻿using Data;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 public interface ILoader<Key, Value>
@@ -18,7 +16,7 @@ public class DataManager
     public void Init()
     {
         StatDict = LoadJson<Data.StatData, int, Data.Stat>("StatData").MakeDict();
-        MonsterDict = LoadJson<Data.MonsterData, string, MonsterStat>("MonsterData").MakeDict();
+        MonsterDict = LoadJson<Data.MonsterData, string, Data.MonsterStat>("MonsterData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
@@ -27,9 +25,4 @@ public class DataManager
         Loader data = JsonUtility.FromJson<Loader>(textAsset.text);
         return data;
     }
-    //Dictionary<Key, Value> LoadDict<Key, Value>(string path)
-    //{
-    //    TextAsset fromJsonData = Managers.Resource.Load<TextAsset>($"Data/{path}");
-    //    return DictionaryJsonUtility.FromJson<Key, Value>(fromJsonData.text);
-    //}
 }
