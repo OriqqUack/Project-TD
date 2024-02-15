@@ -9,10 +9,12 @@ public class GameManagerEx
     int _gold;
     //Dictionary<int, GameObject> _players = new Dictionary<int, GameObject>();
     HashSet<GameObject> _monsters = new HashSet<GameObject>();
+    public GameObject _currentTower { get; set; }
 
     public Action<int> OnSpawnEvent;
 
     public GameObject GetPlayer() { return _player; }
+    public GameObject GetTower() { return _currentTower; }
 
     public void GetGold(int gold)
     {
@@ -45,8 +47,31 @@ public class GameManagerEx
             case Define.WorldObject.Player:
                 _player = go;
                 break;
+            case Define.WorldObject.Tower:
+                _currentTower = go;
+                break;
         }
+        return go;
+    }
 
+    public GameObject Spawn(Define.WorldObject type, string path, Vector3 position, Quaternion quaternion, Transform parent = null)
+    {
+        GameObject go = Managers.Resource.Instantiate(path, position, quaternion);
+
+        switch (type)
+        {
+            case Define.WorldObject.Monster:
+                _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
+                break;
+            case Define.WorldObject.Player:
+                _player = go;
+                break;
+            case Define.WorldObject.Tower:
+                _currentTower = go;
+                break;
+        }
         return go;
     }
 

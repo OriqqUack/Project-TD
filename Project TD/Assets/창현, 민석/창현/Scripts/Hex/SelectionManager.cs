@@ -22,14 +22,33 @@ public class SelectionManager : MonoBehaviour
 
     public void HandleClick(Vector3 mousePosition)
     {
+        HighlightControl(mousePosition);
+    }
+ 
+    private bool FindTarget(Vector3 mousePosition, out GameObject result)
+    {
+        RaycastHit hit;
+        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
+        if(Physics.Raycast(ray, out hit, selectionMask))
+        {
+            result = hit.collider.gameObject;
+            Managers.Game._currentTower = result;
+            return true;
+        }
+        result = null;
+        return false;
+    }
+
+    private void HighlightControl(Vector3 mousePosition)
+    {
         GameObject result;
-        if(FindTarget(mousePosition, out result))
+        if (FindTarget(mousePosition, out result))
         {
             Hex selectedHex = result.GetComponent<Hex>();
-
+            Debug.Log(result.transform.position);
             selectedHex.DisableHighlight();
 
-            foreach(Vector3Int neighbour in neighbours)
+            foreach (Vector3Int neighbour in neighbours)
             {
                 hexGrid.GetTileAt(neighbour).DisableHighlight();
             }
@@ -41,25 +60,8 @@ public class SelectionManager : MonoBehaviour
                 hexGrid.GetTileAt(neighbour).EnableHighlight();
             }
 
-            Debug.Log($"Neighbours for {selectedHex.HexCoords} are:");
-            foreach (Vector3Int neighbourPos in neighbours)
-            {
-                Debug.Log(neighbourPos);
-            }
+            Debug.Log($"{selectedHex.HexCoords}");
         }
-
-    }
-
-    private bool FindTarget(Vector3 mousePosition, out GameObject result)
-    {
-        RaycastHit hit;
-        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
-        if(Physics.Raycast(ray, out hit, selectionMask))
-        {
-            result = hit.collider.gameObject;
-            return true;
-        }
-        result = null;
-        return false;
+        
     }
 }

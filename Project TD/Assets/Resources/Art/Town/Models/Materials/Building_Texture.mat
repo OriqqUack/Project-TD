@@ -8,11 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Building_Texture
-  m_Shader: {fileID: -6465566751694194690, guid: 7da7ae8281654534c87a6ac85d7030c3,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 71d6765ad72e11541bc1448c891bbcf9, type: 3}
   m_Parent: {fileID: 2100000, guid: 37abab3b6bd68b542ac27f3bb6c3c974, type: 2}
   m_ModifiedSerializedProperties: 2
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - PROPIXELIZER_DITHERING_ON
+  - RECEIVE_SHADOWS_ON
+  - USE_OBJECT_POSITION_ON
   m_InvalidKeywords:
   - _EMISSION
   m_LightmapFlags: 1
