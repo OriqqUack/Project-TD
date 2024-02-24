@@ -11,7 +11,14 @@ public class Define
         Monster,
     }
 
-	public enum State
+    public enum Monsters
+    {
+        Unknown,
+        Slime,
+        Ork
+    }
+
+    public enum State
 	{
 		Die,
 		Moving,

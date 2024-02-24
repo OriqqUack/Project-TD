@@ -13,6 +13,7 @@ public class DataManager
 {
     public Dictionary<int, Data.Stat> StatDict { get; private set; } = new Dictionary<int, Data.Stat>();
     public Dictionary<string, Data.MonsterStat> MonsterDict { get; private set; } = new Dictionary<string, Data.MonsterStat>();
+
     public void Init()
     {
         StatDict = LoadJson<Data.StatData, int, Data.Stat>("StatData").MakeDict();

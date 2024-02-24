@@ -30,16 +30,30 @@ public class MonsterStat : Stat
     //public int MaxHp { get { return _maxHp;} set { _maxHp = value; } } 
     //public int Attack { get { return _attack; } set { _attack = value; } } 
     //public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } } 
-    public float AttackSpeed { get { return _attackSpeed; } set { _attackSpeed = value; } } 
-    public float ScanRange { get { return _scanRange; } set { _scanRange = value; } } 
-    public float AttackRange { get { return _attackRange; } set { _attackRange = value; } } 
+    public float AttackSpeed { get { return _attackSpeed; } set { _attackSpeed = value; } }
+    public float ScanRange { get { return _scanRange; } set { _scanRange = value; } }
+    public float AttackRange { get { return _attackRange; } set { _attackRange = value; } }
 
-
+    
 
     void Start()
     {
-        
+        SetStat(_monsterName);
     }
+
+
+    //public void SetMonster(string monsterName)
+    //{
+    //    switch (MonsterType)
+    //    {
+    //        case Define.Monsters.Slime:
+    //            SetStat("Slime");
+    //            break;
+    //        case Define.Monsters.Ork:
+    //            SetStat("Ork");
+    //            break;
+    //    }
+    //}
 
     public void SetStat(string monsterName)
     {
