@@ -9,7 +9,9 @@ public class Define
         Unknown,
         Player,
         Monster,
-        Tower
+        Tower,
+        Box,
+        Npc
     }
 
 	public enum State
@@ -30,6 +32,8 @@ public class Define
     public enum Scene
     {
         Unknown,
+        Start,
+        Main,
         Login,
         Lobby,
         Game,
@@ -71,5 +75,12 @@ public class Define
         AllEnemiesSpawned,
         Lose,
         Win
+    }
+
+    public enum KeyEvent
+    {
+        MovePress,
+        MoveDown,
+        MoveUp,
     }
 }

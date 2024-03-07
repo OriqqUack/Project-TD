@@ -1310,18 +1310,24 @@ MonoBehaviour:
   standardTurret:
     prefab: {fileID: 6283053820493598965, guid: dcea9cea88d797a44951c2cc32cae76d,
       type: 3}
+    possibleGhostPrefab: {fileID: 0}
+    ImpossibleGhostPrefab: {fileID: 0}
     cost: 0
     description: "\uB514\uD14C\uC77C\uD55C \uC815\uBCF4\uB294 \uBBF8\uC815"
     upgradedPrefab: {fileID: 0}
     upgradeCost: 0
   missileLauncher:
     prefab: {fileID: 0}
+    possibleGhostPrefab: {fileID: 0}
+    ImpossibleGhostPrefab: {fileID: 0}
     cost: 0
     description: 
     upgradedPrefab: {fileID: 0}
     upgradeCost: 0
   laserBeamer:
     prefab: {fileID: 0}
+    possibleGhostPrefab: {fileID: 0}
+    ImpossibleGhostPrefab: {fileID: 0}
     cost: 0
     description: 
     upgradedPrefab: {fileID: 0}

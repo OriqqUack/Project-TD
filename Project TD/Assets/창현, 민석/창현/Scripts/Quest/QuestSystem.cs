@@ -21,7 +21,7 @@ public class QuestSystem : MonoBehaviour
     public delegate void QuestCanceledHandler(Quest quest);
     #endregion
 
-    private static bool isApplicationQuitting;
+    //private static bool isApplicationQuitting;
 
     private List<Quest> activeQuests = new List<Quest>();
     private List<Quest> completedQuests = new List<Quest>();
@@ -59,7 +59,7 @@ public class QuestSystem : MonoBehaviour
     private void OnApplicationQuit()
     {
         Debug.Log("종료");
-        isApplicationQuitting = true;
+        //isApplicationQuitting = true;
         Save();
     } // 오류나 버그에 의하면 저장이 안됨.
 

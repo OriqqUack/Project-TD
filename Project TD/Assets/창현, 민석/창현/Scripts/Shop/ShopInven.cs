@@ -30,7 +30,7 @@ public class ShopInven : UI_Scene
         {
             GameObject item = Managers.UI.MakeSubItem<UI_Inven_Item>(gridPanel.transform).gameObject;
             UI_Inven_Item invenItem = item.GetOrAddComponent<UI_Inven_Item>();
-            invenItem.SetInfo(weaponItem);
+            invenItem.SetInfo(weaponItem.item_name);
         }
     }
 }

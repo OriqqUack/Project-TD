@@ -34,10 +34,10 @@ public class BuildManager : MonoBehaviour {
 
     public void Init()
     {
-        UI = Managers.Resource.Instantiate("TD UI/BuildUI");
+        /*UI = Managers.Resource.Instantiate("TD UI/BuildUI");
 		buildUI = UI.GetComponent<BuildUI>();
 		ghostTowerObject = Managers.Resource.Instantiate("TD UI/PossibleTowerGhost");
-		ghostTower = ghostTowerObject.GetComponent<GhostTower>();
+		ghostTower = ghostTowerObject.GetComponent<GhostTower>();*/
 
 		TowerParent = new GameObject();
         TowerParent.name = "Towers";
