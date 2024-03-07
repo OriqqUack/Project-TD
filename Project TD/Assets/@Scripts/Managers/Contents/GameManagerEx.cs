@@ -56,7 +56,7 @@ public class GameManagerEx
 
     public GameObject Spawn(Define.WorldObject type, string path, Vector3 position, Quaternion quaternion, Transform parent = null)
     {
-        GameObject go = Managers.Resource.Instantiate(path, position, quaternion);
+        GameObject go = Managers.Resource.Instantiate(path, parent);
 
         switch (type)
         {

@@ -38,20 +38,16 @@ public class ResourceManager
         return go;
     }
 
-    public GameObject Instantiate(string path, Vector3 position, Quaternion rotation)
+    public GameObject Instantiate(GameObject gameObject, Vector3 position, Quaternion rotation , Transform parent = null, int count = 5 )
     {
-        GameObject original = Load<GameObject>($"Prefabs/{path}");
-        if (original == null)
+        GameObject go;
+        if (gameObject.GetComponent<Poolable>() != null)
         {
-            Debug.Log($"Failed to load prefab : {path}");
-            return null;
+            go = Managers.Pool.Pop(gameObject, parent, count).gameObject;
+            go.transform.position = position;
+            go.transform.rotation = rotation;
         }
-
-        //if (original.GetComponent<Poolable>() != null)
-           // return Managers.Pool.Pop(original, parent).gameObject;
-
-        GameObject go = Object.Instantiate(original, position, rotation);
-        go.name = original.name;
+        else go = Instantiate(gameObject, position, rotation);
         return go;
     }
 

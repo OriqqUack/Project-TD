@@ -62,4 +62,14 @@ public class Define
     {
         QuarterView,
     }
+
+    public enum LevelState
+    {
+        Intro,
+        Building,
+        SpawningEnemies,
+        AllEnemiesSpawned,
+        Lose,
+        Win
+    }
 }

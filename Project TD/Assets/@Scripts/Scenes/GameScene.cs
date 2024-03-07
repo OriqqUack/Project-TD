@@ -8,7 +8,7 @@ public class GameScene : BaseScene
     {
         base.Init();
 
-        SceneType = Define.Scene.Game;
+        /*SceneType = Define.Scene.Game;
         //Managers.UI.ShowSceneUI<UI_Inven>();
         Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
         gameObject.GetOrAddComponent<CursorController>();
@@ -19,7 +19,7 @@ public class GameScene : BaseScene
         //Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
         GameObject go = new GameObject { name = "SpawningPool" };
         SpawningPool pool = go.GetOrAddComponent<SpawningPool>();
-        pool.SetKeepMonsterCount(2);
+        pool.SetKeepMonsterCount(2);*/
     }
 
     public override void Clear()
