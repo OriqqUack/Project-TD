@@ -22,6 +22,13 @@ public class Define
 		Skill,
 	}
 
+    public enum Monsters
+    {
+        Unknown,
+        Slime,
+        Ork
+    }
+
     public enum Layer
     {
         Monster = 8,
