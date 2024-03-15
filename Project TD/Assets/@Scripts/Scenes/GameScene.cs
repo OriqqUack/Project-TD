@@ -14,15 +14,15 @@ public class GameScene : BaseScene
         Dictionary<string, Data.MonsterStat> dict2 = Managers.Data.MonsterDict;
         gameObject.GetOrAddComponent<CursorController>();
 
-        GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "UnityChan");
+        GameObject player = Managers.Game.PlayerSpawn(Define.Players.Normal, "UnityChan");
         Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
 
-        //Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
+        Managers.Game.MonsterSpawn(Define.Monsters.Slime, "Knight");
         GameObject go = new GameObject { name = "SpawningPool" };
         SpawningPool pool = go.GetOrAddComponent<SpawningPool>();
         pool.SetKeepMonsterCount(2);
     }
-
+    
     public override void Clear()
     {
         

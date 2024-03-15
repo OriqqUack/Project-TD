@@ -8,11 +8,11 @@ public class MonsterController : BaseController
 {
 	MonsterStat _stat;
 
-    public Define.Monsters MonsterType { get; set; } = Define.Monsters.Unknown;
+    public Define.Monsters MonsterType { get; protected set; } = Define.Monsters.Unknown; // Despawn 하기위해
 
     public override void Init()
     {
-		WorldObjectType = Define.WorldObject.Monster;
+        MonsterType = Define.Monsters.Unknown; // 고쳐야함
 
 		_stat = gameObject.GetComponent<MonsterStat>();
 

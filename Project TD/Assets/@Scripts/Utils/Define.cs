@@ -11,6 +11,18 @@ public class Define
         Monster,
     }
 
+    public enum Players
+    {
+        Unknown,
+        Normal,
+        Knight,
+        Gunner,
+        Miner,
+        Engineer,
+        Researcher,
+        Medic
+    }
+
     public enum Monsters
     {
         Unknown,
