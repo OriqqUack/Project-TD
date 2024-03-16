@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06acdde799e87d649a577f70db8c1c1d, type: 3}
-  m_Name: Quest_Test
+  m_Name: Quest_HealThePatientBody
   m_EditorClassIdentifier: 
-  category: {fileID: 0}
+  category: {fileID: 11400000, guid: cffd13c5bc8557b40b6f299822e162ef, type: 2}
   icon: {fileID: 0}
-  codeName: TEST
-  displayName: Test
-  description: TEST QUEST
-  taskGroups:
-  - tasks:
-    - {fileID: 11400000, guid: d839229dd30149d40a4d222aaddbf930, type: 2}
+  codeName: HEAL_THE_PATIENTS_BODY
+  displayName: Heal The Patient's Body
+  description: You must heall the patients body
+  taskGroups: []
   rewards: []
-  useAutoComplete: 1
+  useAutoComplete: 0
   isCancelable: 0
-  isSavable: 1
+  isSavable: 0
   accetptionConditions: []
   cancelConditionos: []
