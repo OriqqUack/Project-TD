@@ -24,7 +24,7 @@ public class BuildManager : MonoBehaviour
 
 	[HideInInspector]
 	public Dictionary<Vector3Int, Hex> hexTileDict = new Dictionary<Vector3Int, Hex>();
-	[HideInInspector]
+    [HideInInspector]
 	public Dictionary<Vector3Int, List<Vector3Int>> hexTileNeighboursDict = new Dictionary<Vector3Int, List<Vector3Int>>();
 	[HideInInspector]
 	public Hex _currentHex;

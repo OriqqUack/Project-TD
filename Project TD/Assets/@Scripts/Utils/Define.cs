@@ -83,4 +83,10 @@ public class Define
         MoveDown,
         MoveUp,
     }
+
+    public enum Tile
+    {
+        Ground,
+        HexTile
+    }
 }

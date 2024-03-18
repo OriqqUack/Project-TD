@@ -15,19 +15,19 @@ public class HexGrid : Hex
             return;
 
         #region Highligh
-        /*DisableHighlight();*/
+        /*DisableHighlight();
 
-        /*if(BuildManager.Instance._currentHex != null)
+        if (BuildManager.Instance._currentHex != null)
         {
             foreach (Vector3Int neighbour in BuildManager.Instance._currentHex.neighbours)
             {
                 BuildManager.Instance.GetTileAt(neighbour).DisableHighlight();
             }
-        }*/
+        }
 
-        /*neighbours = BuildManager.Instance.GetNeighboursFor(HexCoords);*/
+        neighbours = BuildManager.Instance.GetNeighboursFor(HexCoords);
 
-        /*foreach (Vector3Int neighbour in neighbours)
+        foreach (Vector3Int neighbour in neighbours)
         {
             BuildManager.Instance.GetTileAt(neighbour).EnableHighlight();
         }*/

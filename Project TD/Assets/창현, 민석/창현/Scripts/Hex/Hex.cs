@@ -17,10 +17,11 @@ public class Hex : MonoBehaviour
     public Vector3Int HexCoords => hexCoordinates.GetHexCoords();
 
     public List<Vector3Int> neighbours = new List<Vector3Int>();
+
+    public Define.Tile _tile;
     private void Awake()
     {
         hexCoordinates = GetComponent<HexCoordinates>();
-        /*highlight = GetComponent<GlowHighlight>();*/
     }
 
     private void Start()
@@ -29,7 +30,7 @@ public class Hex : MonoBehaviour
     }
 
     #region Highlight
-    /*public void EnableHighlight()
+   /* public void EnableHighlight()
     {
         highlight.ToggleGlow(true);
     }

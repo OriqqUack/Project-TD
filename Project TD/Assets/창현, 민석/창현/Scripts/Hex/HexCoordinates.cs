@@ -6,6 +6,7 @@ using UnityEngine;
 public class HexCoordinates : MonoBehaviour
 {
     public float xOffset, yOffset, zOffset;
+    int groundOffset = 10000;
 
     internal Vector3Int GetHexCoords()
         => offsetCoordinates;
@@ -24,6 +25,14 @@ public class HexCoordinates : MonoBehaviour
         int x = Mathf.CeilToInt(position.x / xOffset);
         int y = Mathf.RoundToInt(position.y / yOffset);
         int z = Mathf.RoundToInt(position.z / zOffset);
+
+        if (this.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            x += groundOffset;
+            y += groundOffset;
+            z += groundOffset;
+        }
+            
         return new Vector3Int(x, y, z);
     }
 }
