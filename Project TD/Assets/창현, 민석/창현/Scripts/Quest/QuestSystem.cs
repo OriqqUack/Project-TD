@@ -33,8 +33,8 @@ public class QuestSystem : MonoBehaviour
                 instance = FindObjectOfType<QuestSystem>();
                 if (instance == null)
                 {
-                    instance = new GameObject("Quest System").AddComponent<QuestSystem>();
-                    DontDestroyOnLoad(instance.gameObject);
+                    /*instance = new GameObject("Quest System").AddComponent<QuestSystem>();
+                    DontDestroyOnLoad(instance.gameObject);*/
                 }
             }
             return instance;
