@@ -39,8 +39,8 @@ public class PlayerController : BaseController
         _cc.isTrigger = false;
 
         // 플레이어 OnMouseEvent의 중복을 피하기 위해서 (-)로 함수를 제거해주고 (+)로 다시 실행
-        Managers.Input.Key -= OnKeyEvent;
-        Managers.Input.Key += OnKeyEvent;
+        //Managers.Input.Key -= OnKeyEvent;
+        //Managers.Input.Key += OnKeyEvent;
 
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);

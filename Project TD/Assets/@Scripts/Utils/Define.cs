@@ -19,7 +19,10 @@ public class Define
 		Die,
 		Moving,
 		Idle,
-		Skill,
+        Jump,
+        FallDown,
+		Attack,
+        Skill,
 	}
 
     public enum Layer
