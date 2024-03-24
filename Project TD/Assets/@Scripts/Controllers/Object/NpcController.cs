@@ -14,23 +14,41 @@ public class NpcController : MonoBehaviour
         WorldObjectType = Define.WorldObject.Npc;
     }
 
+    protected void FixedUpdate()
+    {
+        NpcScript("UI_NPC_Text");
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject _player = Managers.Game.GetPlayer();
-
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("NPC"))
         {
             if (gameObject.GetComponentInChildren<UI_NPC>() == null)
-                Managers.UI.MakeWorldSpaceUI<UI_NPC>(_player.transform, "UI_NPC_Text");
+                Managers.UI.MakeWorldSpaceUI<UI_NPC>(gameObject.transform, "UI_NPC_Text");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        GameObject _player = Managers.Game.GetPlayer();
-
-        GameObject go = Util.FindChild(_player, "UI_NPC_Text", true);
+        GameObject go = Util.FindChild(gameObject, "UI_NPC_Text", true);
         Destroy(go);
+    }
+
+    private void NpcScript(string prefab = null)
+    {
+        GameObject root = Managers.UI.Root.gameObject;
+
+        if (Util.FindChild(gameObject, prefab, true) == null)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && Util.FindChild(root, "Dialogue", true) == null)
+        {
+            Managers.UI.ShowPopupUI<UI_Popup>("Script/Dialogue");
+            GameObject go = Util.FindChild(gameObject, "UI_NPC_Text", true);
+            Destroy(go);
+        }
     }
 }

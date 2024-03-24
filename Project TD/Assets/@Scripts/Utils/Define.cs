@@ -11,10 +11,18 @@ public class Define
         Monster,
         Tower,
         Box,
-        Npc
+        Npc,
+        TP
     }
 
-	public enum State
+    public enum ObjectNumber
+    {
+        Box = 1,
+        Npc = 3,
+        TP = 3,
+    }
+
+    public enum State
 	{
 		Die,
 		Moving,
