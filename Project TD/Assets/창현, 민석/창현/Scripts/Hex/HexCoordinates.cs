@@ -32,7 +32,7 @@ public class HexCoordinates : MonoBehaviour
             y += groundOffset;
             z += groundOffset;
         }
-            
+        
         return new Vector3Int(x, y, z);
     }
 }

@@ -22,6 +22,8 @@ public class Stat : MonoBehaviour
     protected float _dashingTime;
     [SerializeField]
     protected float _dashingCooldown;
+    [SerializeField]
+    protected float _attackDistance;
 
     public int Level { get { return _level; } set { _level = value; } }
     public int Hp { get { return _hp; } set { _hp = value; } }
@@ -32,6 +34,7 @@ public class Stat : MonoBehaviour
     public float DashingSpeed { get { return _dashingPower; } set { _dashingPower = value; } }
     public float DashingTime { get { return _dashingTime; } set { _dashingTime = value; } }
     public float DashingCooldown { get { return _dashingCooldown; } set { _dashingCooldown = value; } }
+    public float AttackDistance { get { return _attackDistance; } set { _attackDistance = value; } }
 
     private void Start()
     {

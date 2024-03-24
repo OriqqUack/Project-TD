@@ -6,7 +6,8 @@ public class ConcreteStateIdle : State
 {
     public override void DoAction(Define.State state)
     {
-        StartCoroutine("MovingCheck");
+        CoroutineRunningCheck();
+        _coroutine = StartCoroutine("MovingCheck");
     }
 
     IEnumerator MovingCheck()
@@ -18,11 +19,12 @@ public class ConcreteStateIdle : State
 
             bool _isMoving = MovingCheck(_hAxis, _vAxis);
             if (_isMoving)
-                break;
+            {
+                GetComponent<MyAction>().SetActionType(Define.State.Moving);
+                StopCoroutine("MovingCheck");
+            }
             yield return null;
         }
-
-        GetComponent<MyAction>().SetActionType(Define.State.Moving);
     }
 
     

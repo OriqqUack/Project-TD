@@ -48,6 +48,7 @@ public class PlayerStat : Stat
 		_dashingTime = 0.2f;
 		_dashingCooldown = 0.1f;
 		_gold = 0;
+		_attackDistance = 3;
 
 		SetStat(_level);
 	}

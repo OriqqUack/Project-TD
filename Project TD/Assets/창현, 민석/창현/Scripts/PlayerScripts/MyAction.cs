@@ -65,6 +65,10 @@ public class MyAction : MonoBehaviour
                 myState = gameObject.AddComponent<ConcreteStateAttack>();
                 myState.DoAction(state);
                 break;
+            case Define.State.FallDown:
+                myState = gameObject.AddComponent<ConcreteStateFallDown>();
+                myState.DoAction(state);
+                break;
         }
     }
 

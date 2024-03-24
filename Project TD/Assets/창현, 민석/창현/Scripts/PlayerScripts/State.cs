@@ -6,13 +6,16 @@ public abstract class State : MonoBehaviour
 {
     protected Rigidbody _rb;
     protected PlayerStat _stat;
-    
+    protected Animator _anim;
+    protected Coroutine _coroutine;
+
     public abstract void DoAction(Define.State state);
 
     protected virtual void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _stat = GetComponent<PlayerStat>();
+        _anim = GetComponent<Animator>();
     }
 
     protected virtual bool MovingCheck(float horizon, float vertical)
@@ -23,5 +26,11 @@ public abstract class State : MonoBehaviour
             return false;
         else
             return true;
+    }
+
+    protected virtual void CoroutineRunningCheck()
+    {
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
     }
 }
