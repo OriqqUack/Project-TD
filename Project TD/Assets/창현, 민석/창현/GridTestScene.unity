@@ -1820,6 +1820,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1838317863}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1838317866}
   m_SourcePrefab: {fileID: 100100000, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
 --- !u!1001 &482349266
 PrefabInstance:
@@ -6177,6 +6181,7 @@ MonoBehaviour:
   _dashingPower: 0
   _dashingTime: 0
   _dashingCooldown: 0
+  _attackDistance: 0
   _exp: 0
   _gold: 0
 --- !u!54 &1838317862
@@ -6216,6 +6221,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a84636a1c8f6eab46ab57276e95d891f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1838317866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838317858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a4f8792c4a7154f8193dd3b9ddbda8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1869241867 stripped
