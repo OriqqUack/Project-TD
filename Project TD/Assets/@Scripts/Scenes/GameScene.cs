@@ -8,8 +8,6 @@ public class GameScene : BaseScene
     {
         base.Init();
 
-        base.Init();
-
         SceneType = Define.Scene.Game;
         GameObject[] npc = new GameObject[(int)Define.ObjectNumber.Npc];
         GameObject[] tp = new GameObject[(int)Define.ObjectNumber.TP];

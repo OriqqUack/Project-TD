@@ -9,7 +9,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
+        //PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -19,10 +19,24 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     }
 
+    public override void OnJoinedLobby()
+    {
+        Debug.Log("Successfully joined the lobby.");
+        PhotonNetwork.JoinLobby();
+        /*RoomOptions rm = new RoomOptions();
+        rm.MaxPlayers = 4;
+        PhotonNetwork.JoinOrCreateRoom("MyRoom", rm, TypedLobby.Default);*/
+    }
+
+    public override void OnCreatedRoom()
+    {
+        //PhotonNetwork.JoinOrCreateRoom("MyRoom", new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);
+    }
+
     public override void OnConnectedToMaster()
     {
         Debug.Log("I'm connected to the server!!");
-        PhotonNetwork.JoinOrCreateRoom("Room", new RoomOptions { MaxPlayers = 4 }, null);
+        PhotonNetwork.JoinOrCreateRoom("MyRoom", new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);
     }
 
     public override void OnJoinedRoom()
@@ -32,6 +46,11 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        PhotonNetwork.CreateRoom("Arena1");
+        print(returnCode + message);
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        print(returnCode + message);
     }
 }

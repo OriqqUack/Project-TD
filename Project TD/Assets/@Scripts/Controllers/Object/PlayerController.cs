@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
+using UnityEngine.UIElements;
 
 public class PlayerController : BaseController
 {
@@ -41,11 +42,15 @@ public class PlayerController : BaseController
         _rb.useGravity = true;
         _rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         _cc.isTrigger = false;
-        Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(this.gameObject);
 
         //_camObject = GameObject.Find("PlayerCam");
         if (this.gameObject.GetComponent<PhotonView>().IsMine == true)
         {
+            Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(this.gameObject);
+
+            // 플레이어 OnMouseEvent의 중복을 피하기 위해서 (-)로 함수를 제거해주고 (+)로 다시 실행
+            Managers.Input.Key -= OnKeyEvent;
+            Managers.Input.Key += OnKeyEvent;
             /*_cam = _camObject.GetComponent<CinemachineVirtualCamera>();
             _cam.Follow = this.gameObject.transform;
             _cam.LookAt = this.gameObject.transform;*/
@@ -53,11 +58,10 @@ public class PlayerController : BaseController
         else
         {
             this.gameObject.GetComponent<PlayerController>().enabled = false;
+            this.gameObject.GetComponent<NpcController>().enabled = false;
+            this.gameObject.GetComponent<BoxController>().enabled = false;
+            this.gameObject.GetComponent<TPController>().enabled = false;
         }
-
-        // 플레이어 OnMouseEvent의 중복을 피하기 위해서 (-)로 함수를 제거해주고 (+)로 다시 실행
-        Managers.Input.Key -= OnKeyEvent;
-        Managers.Input.Key += OnKeyEvent;
 
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);

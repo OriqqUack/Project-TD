@@ -16,8 +16,12 @@ public class SpwanCharacters : MonoBehaviour
     {
         if (PhotonNetwork.IsConnected)
         {
-            PhotonNetwork.Instantiate(character.name, spawnPoints[PhotonNetwork.CountOfPlayers - 1].position, spawnPoints[PhotonNetwork.CountOfPlayers - 1].rotation);
+            GameObject player = PhotonNetwork.Instantiate(character.name, spawnPoints[PhotonNetwork.CountOfPlayers - 1].position, Quaternion.identity);
+            player.name = $"Player{Managers.Pool._playerCount}";
+            Managers.Pool._playerCount++;
         }
+        /*GameObject player = PhotonNetwork.Instantiate("PlayerPrefab", Vector3.zero, Quaternion.identity);
+        player.name = "Player";*/
     }
 
     // Update is called once per frame
