@@ -46,9 +46,13 @@ public class GameManagerEx
 
         return go;
     }
-    public GameObject MonsterSpawn(Define.Monsters monsterType, string path, Transform parent = null)
+    public GameObject MonsterSpawn(Define.Monsters monsterType, string path, Transform spawnPoint,Transform parent = null)
     {
-        GameObject go = Managers.Resource.Instantiate(path, parent);
+        GameObject go = Managers.Resource.Instantiate($"Monsters/{path}", parent);
+
+        // 소환 위치 지정
+        go.transform.position = spawnPoint.position;
+        go.transform.rotation = spawnPoint.rotation;
 
         switch (monsterType)
         {
