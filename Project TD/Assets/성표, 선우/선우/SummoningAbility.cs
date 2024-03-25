@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SummoningAbility : MonoBehaviour
+public class SummoningAbility
 {
-    public GameObject summonerMonster;
 
-    public void SummonMonster(Vector3 position, Quaternion rotation)
+    public void SummonMonster(GameObject summonerMonster) // 소환수의 정보를 매개변수로 지정
     {
+        
         if (summonerMonster != null)
         {
-            position = summonerMonster.transform.position;
-            rotation = summonerMonster.transform.rotation;
-            GameObject summonedMonster = Managers.Game.MonsterSpawn(Define.Monsters.Unknown, "ChestMonsterPBRDefault", s);
+            Transform spawnPoint = summonerMonster.transform; // 위치와 방향을 spawnPoint에 저장
+            GameObject summonedMonster = Managers.Game.MonsterSpawn(Define.Monsters.Unknown, "ChestMonsterPBRDefault", spawnPoint);
 
         }
         else
