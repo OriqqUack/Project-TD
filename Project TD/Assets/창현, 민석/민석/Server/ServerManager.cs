@@ -41,6 +41,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        //PhotonNetwork.LoadLevel("City");
         PhotonNetwork.LoadLevel("Game");
     }
 

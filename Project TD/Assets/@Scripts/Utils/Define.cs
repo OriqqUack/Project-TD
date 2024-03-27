@@ -12,13 +12,14 @@ public class Define
         Tower,
         Box,
         Npc,
-        TP
+        TP,
+        Roket,
     }
 
     public enum ObjectNumber
     {
         Box = 1,
-        Npc = 3,
+        Npc = 5,
         TP = 3,
     }
 
@@ -50,7 +51,7 @@ public class Define
         Start,
         Main,
         Login,
-        Lobby,
+        City,
         Game,
         Home
     }

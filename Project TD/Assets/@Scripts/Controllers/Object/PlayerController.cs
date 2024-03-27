@@ -71,7 +71,7 @@ public class PlayerController : BaseController
     {
         UpdateCamera();
         TelePort();
-
+        
         if (_canMove)
             UpdateMoving();
     }

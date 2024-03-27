@@ -9,28 +9,21 @@ public class GameScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Game;
-        GameObject[] npc = new GameObject[(int)Define.ObjectNumber.Npc];
-        GameObject[] tp = new GameObject[(int)Define.ObjectNumber.TP];
 
         Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
         gameObject.GetOrAddComponent<CursorController>();
-        //GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "UnityChan");
-        for (int i = 0; i < (int)Define.ObjectNumber.Npc; i++)
+
+        if (Managers.Input._isSingle)
         {
-            npc[i] = Managers.Game.Spawn(Define.WorldObject.Npc, $"NPC/Npc{i}");
+            GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "SPlayer");
         }
 
-        for (int i = 0; i < (int)Define.ObjectNumber.TP; i++)
-        {
-            tp[i] = Managers.Game.Spawn(Define.WorldObject.TP, $"TP Point/Point{i}");
-        }
-        GameObject box = Managers.Game.Spawn(Define.WorldObject.Box, $"Box/Box");
         //Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
 
         //Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
-        GameObject go = new GameObject { name = "SpawningPool" };
+        /*GameObject go = new GameObject { name = "SpawningPool" };
         SpawningPool pool = go.GetOrAddComponent<SpawningPool>();
-        pool.SetKeepMonsterCount(0);
+        pool.SetKeepMonsterCount(0);*/
     }
 
     protected void Update()
