@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stat : MonoBehaviour
 {
+
     [SerializeField]
     protected int _level;
     [SerializeField]

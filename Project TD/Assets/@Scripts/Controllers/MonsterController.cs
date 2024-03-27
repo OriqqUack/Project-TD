@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class MonsterController : BaseController
 {
+	[SerializeField]
 	MonsterStat _stat;
 
     public Define.Monsters MonsterType { get; protected set; } = Define.Monsters.Unknown; // Despawn 하기위해

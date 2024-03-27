@@ -41,7 +41,7 @@ public class SpawningPool : MonoBehaviour
         Transform spawnPoint = transform;
         _reserveCount++;
         yield return new WaitForSeconds(Random.Range(0, _spawnTime));
-        GameObject obj = Managers.Game.MonsterSpawn(Define.Monsters.Slime, "Knight");
+        GameObject obj = Managers.Game.MonsterSpawn(Define.Monsters.Monster1, "Knight");
         NavMeshAgent nma = obj.GetOrAddComponent<NavMeshAgent>();
 
         Vector3 randPos;

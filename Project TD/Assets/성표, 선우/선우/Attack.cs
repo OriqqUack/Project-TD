@@ -15,8 +15,8 @@ public class Attack : MonoBehaviour, IAttack
         _playerStat = attacker as PlayerStat; // attacker가 PlayerStat을 가지는 경우
         if (_playerStat != null)
         {
-            damage = Mathf.Max(0, _playerStat.Attack - _playerStat.Defense);
-            _playerStat.Hp -= damage;
+            damage = Mathf.Max(0, _playerStat.Attack - _monsterStat.Defense);
+            _monsterStat.Hp -= damage;
             if (_playerStat.Hp <= 0)
             {
                 _playerStat.Hp = 0;

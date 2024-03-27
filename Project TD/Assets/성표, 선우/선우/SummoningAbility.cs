@@ -7,7 +7,7 @@ public class SummoningAbility
 
     public void SummonMonster(GameObject summonerMonster) // 소환수의 정보를 매개변수로 지정
     {
-        
+                                 
         if (summonerMonster != null)
         {
             Transform spawnPoint = summonerMonster.transform; // 위치와 방향을 spawnPoint에 저장

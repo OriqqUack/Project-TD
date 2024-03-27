@@ -46,22 +46,60 @@ public class GameManagerEx
 
         return go;
     }
-    public GameObject MonsterSpawn(Define.Monsters monsterType, string path, Transform spawnPoint = null, Transform parent = null) // 스폰하는 위치도 지정
+    public GameObject MonsterSpawn(Define.Monsters monsterType, string path, Transform parent = null) // 스폰하는 위치도 지정
     {
         GameObject go = Managers.Resource.Instantiate($"Monsters/{path}", parent);
 
         // 소환 위치 지정
-        go.transform.position = spawnPoint.position;
-        go.transform.rotation = spawnPoint.rotation;
 
         switch (monsterType)
         {
-            case Define.Monsters.Slime:
+            case Define.Monsters.Monster1:
                 _monsters.Add(go);
                 if (OnSpawnEvent != null)
                     OnSpawnEvent.Invoke(1);
                 break;
-            case Define.Monsters.Ork:
+            case Define.Monsters.Monster2:
+                _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
+                break;
+            case Define.Monsters.Monster3:
+                _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
+                break;
+            case Define.Monsters.Monster4:
+                _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
+                break;
+            case Define.Monsters.Monster5:
+                _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
+                break;
+            case Define.Monsters.Monster6:
+                _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
+                break;
+            case Define.Monsters.Monster7:
+                _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
+                break;
+            case Define.Monsters.Monster8:
+                _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
+                break;
+            case Define.Monsters.Monster9:
+                _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
+                break;
+            case Define.Monsters.Monster10:
                 _monsters.Add(go);
                 if (OnSpawnEvent != null)
                     OnSpawnEvent.Invoke(1);
@@ -149,7 +187,7 @@ public class GameManagerEx
 
         switch (type)
         {
-            case Define.Monsters.Slime:
+            case Define.Monsters.Monster1:
                 {
                     if (_monsters.Contains(go))
                     {
@@ -159,7 +197,87 @@ public class GameManagerEx
                     }
                 }
                 break;
-            case Define.Monsters.Ork:
+            case Define.Monsters.Monster2:
+                {
+                    if (_monsters.Contains(go))
+                    {
+                        _monsters.Remove(go);
+                        if (OnSpawnEvent != null)
+                            OnSpawnEvent.Invoke(-1);
+                    }
+                }
+                break;
+            case Define.Monsters.Monster3:
+                {
+                    if (_monsters.Contains(go))
+                    {
+                        _monsters.Remove(go);
+                        if (OnSpawnEvent != null)
+                            OnSpawnEvent.Invoke(-1);
+                    }
+                }
+                break;
+            case Define.Monsters.Monster4:
+                {
+                    if (_monsters.Contains(go))
+                    {
+                        _monsters.Remove(go);
+                        if (OnSpawnEvent != null)
+                            OnSpawnEvent.Invoke(-1);
+                    }
+                }
+                break;
+            case Define.Monsters.Monster5:
+                {
+                    if (_monsters.Contains(go))
+                    {
+                        _monsters.Remove(go);
+                        if (OnSpawnEvent != null)
+                            OnSpawnEvent.Invoke(-1);
+                    }
+                }
+                break;
+            case Define.Monsters.Monster6:
+                {
+                    if (_monsters.Contains(go))
+                    {
+                        _monsters.Remove(go);
+                        if (OnSpawnEvent != null)
+                            OnSpawnEvent.Invoke(-1);
+                    }
+                }
+                break;
+            case Define.Monsters.Monster7:
+                {
+                    if (_monsters.Contains(go))
+                    {
+                        _monsters.Remove(go);
+                        if (OnSpawnEvent != null)
+                            OnSpawnEvent.Invoke(-1);
+                    }
+                }
+                break;
+            case Define.Monsters.Monster8:
+                {
+                    if (_monsters.Contains(go))
+                    {
+                        _monsters.Remove(go);
+                        if (OnSpawnEvent != null)
+                            OnSpawnEvent.Invoke(-1);
+                    }
+                }
+                break;
+            case Define.Monsters.Monster9:
+                {
+                    if (_monsters.Contains(go))
+                    {
+                        _monsters.Remove(go);
+                        if (OnSpawnEvent != null)
+                            OnSpawnEvent.Invoke(-1);
+                    }
+                }
+                break;
+            case Define.Monsters.Monster10:
                 {
                     if (_monsters.Contains(go))
                     {
